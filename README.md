@@ -34,7 +34,30 @@ Parte do projeto responsável por implementar a camada de comunicação com o ba
 | :---------- | :--------- | :---------------------------------- |
 | `video`     | `file`     | **obrig.** Vídeo para upload        |
 
---------------
+***_Buscar Prompts:_***
+```http
+  POST /prompts
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+
+***_Criar transcrição:_***
+```http
+  POST /videos/{prompt}/transcription
+```
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `prompt`    | `string`   | **obrig.** Prompts para transcrição |
+
+***_Gerar Completação por IA:_***
+```http
+  POST /ai/complete
+```
+| Parâmetro     | Tipo       | Descrição                          |
+| :----------   | :--------- | :--------------------------------- |
+| `videoId`     | `string`   | **obrig.** Id do vídeo             |
+| `temperature` | `number`   | **obrig.** Nível de criatividade   |
+| `prompt`      | `string`   | **obrig.** Prompts para completação|
 
 ### :desktop_computer: Aplicação Web
 
@@ -46,5 +69,4 @@ Parte do projeto por implementar uma das camadas de interação do usuário com 
 ```
 
 Permite o usuário:
-* Realizar o upload de um vídeo e obter a transcrição do mesmo para texto;
-* Utilizar templates anteriormente cadastrados para instruir a IA a fazer aquilo que ele desejar com a transcrição.
+* Realizar o upload de um vídeo e obter a transcrição do mesmo para texto e com isso, utilizar templates anteriormente cadastrados para instruir a IA a fazer aquilo que ele desejar com a transcrição.
